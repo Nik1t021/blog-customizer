@@ -9,7 +9,11 @@ type UseEnterSubmit = {
   optionRef: RefObject<HTMLDivElement | null>;
 };
 
-export const useEnterSubmit = ({ onChange, option, optionRef, }: UseEnterSubmit): void => {
+export const useEnterSubmit = ({
+  onChange,
+  option,
+  optionRef,
+}: UseEnterSubmit): void => {
   useEffect(() => {
     const optionHtml = optionRef.current;
 

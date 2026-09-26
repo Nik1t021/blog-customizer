@@ -1,13 +1,12 @@
-import { useState } from 'react';
-
 import { defaultArticleState } from '@/constants/articleProps.ts';
+import { useState } from 'react';
 
 import { ArticleParamsForm } from '@components/article-params-form';
 
 import { Article } from '../article/Article';
 
+import type { ArticleStateType } from '@/constants/articleProps';
 import type { CSSProperties } from 'react';
-import type { ArticleStateType } from '@/constants/articleProps';  
 
 import styles from './app.module.scss';
 
