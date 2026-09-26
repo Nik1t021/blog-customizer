@@ -7,7 +7,7 @@ import { ArticleParamsForm } from '@components/article-params-form';
 import { Article } from '../article/Article';
 
 import type { CSSProperties } from 'react';
-import type { ArticleStateType } from '/constants/articleProps.ts';  
+import type { ArticleStateType } from '@/constants/articleProps';  
 
 import styles from './app.module.scss';
 
