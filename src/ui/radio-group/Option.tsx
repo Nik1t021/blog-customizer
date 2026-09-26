@@ -23,10 +23,10 @@ export const Option = (props: OptionProps): React.JSX.Element => {
 
   const handleChange = (): void => onChange?.(option);
 
-  useEnterSubmit({ onChange, option });
+  useEnterSubmit({ onChange, option, optionRef });
 
   const inputId = `${groupName}_radio_item_with_value__${value}`;
-  const isChecked = value === selected.title;
+  const isChecked = value === selected.value;
 
   return (
     <div
