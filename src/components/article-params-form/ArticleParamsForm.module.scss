@@ -1,15 +1,17 @@
 .container {
 	position: fixed;
 	left: 0;
+	top:0;
+	z-index:10;
 	width: 616px;
 	height: 100%;
-	overflow: scroll;
-	transform: translate(-616px);
+	overflow-y: auto;
+	transform: translateX(-616px);
 	transition: transform 0.5s ease;
 }
 
-.container_open {
-	transform: translate(0);
+.containerOpen {
+	transform: translateX(0);
 }
 
 .form {
@@ -23,6 +25,14 @@
 	padding: 50px 31px;
 	background-color: #fff;
 	border-right: 1px solid #000;
+}
+
+.paramsContainer{
+	display: flex;
+	flex-direction: column;
+	row-gap: 50px;
+	margin-top: 50px;
+	margin-bottom: 50px;
 }
 
 .bottomContainer {
