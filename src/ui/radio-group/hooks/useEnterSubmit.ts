@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 
 import type { RefObject } from 'react';
 import type { OptionType } from 'src/constants/articleProps';
@@ -25,8 +25,6 @@ export const useEnterSubmit = ({ onChange, option, optionRef, }: UseEnterSubmit)
 
     optionHtml.addEventListener('keydown', handleEnterKeyDown);
 
-    // не забываем удалять листенеры, при размонтировании компонента
-    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
     return (): void => {
       optionHtml.removeEventListener('keydown', handleEnterKeyDown);
     };

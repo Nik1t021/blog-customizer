@@ -17,8 +17,8 @@ import { Select } from 'src/ui/select';
 import { Separator } from 'src/ui/separator';
 import { Text } from 'src/ui/text';
 
-import type { FormEvents } from 'react';
-import type { ArticleStateType } from 'src/constants/articleProps';
+import type { FormEvent } from 'react';
+import type { ArticleStateType } from '@/constants/articleProps';
 
 import styles from './ArticleParamsForm.module.scss';
 
@@ -28,8 +28,11 @@ type ArticleParamsFormProps = {
 
 export const ArticleParamsForm = ({
   onChange,
-}: ArticleParamsFormProps): React.JSX.element => {
+}: ArticleParamsFormProps): React.JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const [formState, setFormState] =
+    useState<ArticleStateType>(defaultArticleState);
 
   const rootRef = useRef<HTMLDivElement>(null);
 
@@ -108,7 +111,7 @@ export const ArticleParamsForm = ({
               title="Шрифт"
               selected={formState.fontFamilyOption}
               options={fontFamilyOptions}
-              onChange={(fontFamilyOptions) =>
+              onChange={(fontFamilyOption) =>
                 setFormState((currentState) => ({
                   ...currentState,
                   fontFamilyOption,
@@ -145,21 +148,34 @@ export const ArticleParamsForm = ({
 
         <Select
         title="Цвет фона"
-        selected={formState.contentWidth}
-        options={contentWidthArr}
-        onChange={(contentWidth) => ({
-          ...currentState,
-          contentWidth,
+        selected={formState.backgroundColor}
+        options={backgroundColor}
+        onChange={(backgroundColor) => 
+          setFormState((currentState) => ({
+            ...currentState,
+            backgroundColor,
         }))
       }
     />
+
+      <Select
+        title="ширина контента"
+        selected={formState.contentWidth}
+        options={contentWdthArr}
+        onChange={(contentWidth) =>
+          setFormState((currentState) => ({
+            ...currentState,
+            contentWidth,
+          }))
+        }
+      />
   </div>
   
   <div className={styles.bottomContainer}>
     <Button
       title="Сбросить"
-      htmlType="submit"
-      type="apply"
+      htmlType="reset"
+      type="clear"
     />
 
     <Button
